@@ -10,25 +10,23 @@ void save_binary(staticBuffer* buffer){
         return;
     }
 
-    size_t out;
     int idx;
+
     // write bytes
     for (int i = 0; i < buffer->size; i++) {
 
         idx = (buffer->head+i) % ARRAY_SIZE;
-        out = fwrite(&buffer->arr[idx], sizeof(Event), 1, file); 
 
-        if (out != 1){
-            perror("fwrite error\n");
-            fclose(file);
-            break;
-        }
+        fwrite(&buffer->arr[idx].timestamp, sizeof(uint32_t), 1, file); 
+        fwrite(&buffer->arr[idx].code, sizeof(uint16_t), 1, file);
+        fwrite(&buffer->arr[idx].data, sizeof(uint8_t), DATA_SIZE, file); 
 
     }
 
     // clear buffer
     clear_buffer(buffer);
     fclose(file);
+    
 }
 
 

@@ -11,16 +11,29 @@ typedef struct {
     Event arr[ARRAY_SIZE];
 } staticBuffer;
 
-
+// staticBuffer.c
 void put_event(staticBuffer* buffer, Event new_event);
+
+void find_event(staticBuffer* buffer);
 
 void peek_event(staticBuffer* buffer);
 
-Event pop_event(staticBuffer* buffer);
+int pop_event(staticBuffer* buffer);
 
 void save_binary(staticBuffer* buffer);
 
 void clear_buffer(staticBuffer* buffer);
 
+// debug func
+void stdout_event_codes(staticBuffer* buffer){
+    //stdout
+    printf("\nbuffer:\n");
+    printf("head idx: %ld\n", buffer->head);
+    printf("data: ");
+    for(int i = buffer->head; i < (buffer->head + buffer->size) ; i++){
+        printf("%d ", buffer->arr[i % ARRAY_SIZE].code);
+    }
+    printf("\n\n");
+}
 
 #endif // STATIC_BUFFER_H

@@ -1,4 +1,5 @@
 #include "eventLog.h"
+#include "enum.h"
 #include "createEvent.c"
 #include "./staticEventBuffer/staticBuffer.c"
 #include "saveBuffer.c"
@@ -15,7 +16,8 @@ int main(void){
     printf("3 : peek element by code\n");
     printf("4 : pop element\n");
     printf("5 : exit\n");
-    printf("6 : delete binary\n\n");
+    printf("6 : delete binary\n");
+    printf("7 : find element\n\n");
 
     // static event buffer
     Event* eventArray[ARRAY_SIZE];
@@ -35,54 +37,29 @@ int main(void){
 
         switch(option){
         
-            case 1:
+            case ADD_OPTION:
                 create_event(&buffer, code++);
                 break;
 
-            case 2:
+            case SAVE_OPTION:
                 save_binary(&buffer);
                 break;
             
-            case 3:
+            case PEEK_OPTION:
                 peek_event(&buffer);
-                //stdout
-                printf("\nbuffer:\n");
-                printf("head idx: %ld\n", buffer.head);
-                printf("data: ");
-                for(int i = buffer.head; i < (buffer.head + buffer.size) ; i++){
-                    printf("%d ", buffer.arr[i % ARRAY_SIZE].code);
-                }
-                printf("\n");
-
+                stdout_event_codes(&buffer);
                 break;
 
-            case 4:
-                Event pop;
-
-                if(buffer.size > 0){
-                    pop = pop_event(&buffer);
-                }
-                else{
-                    printf("empty\n");
-                    break;
-                }
-
-                //stdout
-                printf("code: %d\n", pop.code);
-                printf("timestamp: %d\n", pop.timestamp);
-                for(int i = 0; i < 10; i++){
-                    printf("%d ", pop.data[i]);
-                }
-                printf("\n");
-                
+            case POP_OPTION:
+                pop_event(&buffer);
+                stdout_event_codes(&buffer);
                 break;
 
-            case 5:
+            case EXIT_OPTION:
                 printf("exited\n");
-
                 break;
 
-            case 6:
+            case CLEAR_FILE_OPTION:
                 printf("file reset\n");
 
                 if (remove(SAVE_FILE_PATH)) {
@@ -91,12 +68,16 @@ int main(void){
 
                 break;
 
+            case FIND_OPTION:
+                find_event(&buffer);
+                break;
+
             default:
                 break;
 
         }
 
-    } while (option != 5);
+    } while (option != EXIT_OPTION);
     
 }
 
@@ -112,12 +93,12 @@ int read_value(){
     //check test input
     // if(strcmp(input, "TEST_ABOBA_228") == 0){
     //     printf("test input detected\n");
-    //     return 5;
+    //     return TEST_INPUT_OPTION;
     // }
 
 
     //check input
-    if(strlen(input) != 1 || input[0] - '0' > 6 || input[0] - '0' < 1){
+    if(strlen(input) != 1 || input[0] - '0' > MAX_OPTION_ENTRY || input[0] - '0' < 1){
         printf("invalid input\n");
         return 0;
     }

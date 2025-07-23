@@ -37,7 +37,7 @@ int dichotomy(int target, staticBuffer* buffer){
 }
 
 
-void peek_event(staticBuffer* buffer){
+void find_event(staticBuffer* buffer){
     if (buffer->size == 0){
         printf("Empty\n");
         return;
@@ -64,8 +64,29 @@ void peek_event(staticBuffer* buffer){
 }
 
 
-Event pop_event(staticBuffer* buffer){
-    return buffer->arr[buffer->head + buffer->size-- - 1];
+void peek_event(staticBuffer* buffer){
+    // check size
+    if (buffer->size == 0){
+        printf("empty\n");
+        return;
+    }
+
+    printf("code: %d\n", buffer->arr[buffer->head].code);
+    
+}
+
+
+int pop_event(staticBuffer* buffer){
+    // check size
+    if (buffer->size == 0){
+        printf("empty\n");
+        return -1;
+    }
+
+    buffer->size--;
+    buffer->arr[buffer->head++];
+
+    return 0;
 }
 
 
