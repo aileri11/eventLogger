@@ -1,3 +1,0 @@
-/home/aileri/rabotqa/eventLogger/build/CMakeFiles/eventLogger.dir
-/home/aileri/rabotqa/eventLogger/build/CMakeFiles/edit_cache.dir
-/home/aileri/rabotqa/eventLogger/build/CMakeFiles/rebuild_cache.dir

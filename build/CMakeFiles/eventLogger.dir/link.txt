@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/eventLogger.dir/src/main.c.o -o eventLogger 
