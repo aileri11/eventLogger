@@ -1,8 +1,9 @@
 #ifndef ENUM_H
 #define ENUM_H
 
-// options amount
+// max value entry
 #define MAX_OPTION_ENTRY 7
+#define MAX_MODE_ENTRY 2
 
 // options
 #define ADD_OPTION 1
@@ -14,5 +15,10 @@
 #define FIND_OPTION 7
 
 #define TEST_INPUT_OPTION -1
+
+// mode
+#define STATIC_MODE 1
+#define DYNAMIC_MODE 2
+
 
 #endif // ENUM_H

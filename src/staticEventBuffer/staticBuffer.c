@@ -1,21 +1,6 @@
+#include "../input.h"
 #include "../eventLog.h"
 #include "staticBuffer.h"
-
-
-int digits_only(const char *s);
-
-
-void put_event(staticBuffer* buffer, Event new_event){
-    if(buffer->size < ARRAY_SIZE){
-        buffer->arr[(buffer->head + buffer->size++)% ARRAY_SIZE] = new_event;
-    }
-    else{
-        buffer->arr[buffer->head++] = new_event;
-        if(buffer->head == ARRAY_SIZE){
-            buffer->head = 0;
-        }
-    }
-}
 
 
 int dichotomy(int target, staticBuffer* buffer){
@@ -85,22 +70,6 @@ int pop_event(staticBuffer* buffer){
 
     buffer->size--;
     buffer->arr[buffer->head++];
-
-    return 0;
-}
-
-
-int digits_only(const char *s) {
-    if (*s == '\0') {
-        return 1;
-    }
-
-    while (*s != '\0') {
-        if (!isdigit(*s)) {
-            return 1;
-        }
-        s++;
-    }
 
     return 0;
 }

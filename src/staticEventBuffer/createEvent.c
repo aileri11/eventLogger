@@ -1,5 +1,5 @@
-#include "eventLog.h"
-#include "./staticEventBuffer/staticBuffer.h"
+#include "../eventLog.h"
+#include "staticBuffer.h"
 
 
 void create_event(staticBuffer* buffer, int code) {
@@ -35,3 +35,15 @@ void create_event(staticBuffer* buffer, int code) {
     put_event(buffer, new_event);
 }
 
+
+void put_event(staticBuffer* buffer, Event new_event){
+    if(buffer->size < ARRAY_SIZE){
+        buffer->arr[(buffer->head + buffer->size++)% ARRAY_SIZE] = new_event;
+    }
+    else{
+        buffer->arr[buffer->head++] = new_event;
+        if(buffer->head == ARRAY_SIZE){
+            buffer->head = 0;
+        }
+    }
+}

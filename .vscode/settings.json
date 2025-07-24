@@ -1,6 +1,10 @@
 {
   "files.associations": {
     "event.h": "c",
-    "eventlog.h": "c"
+    "eventlog.h": "c",
+    "staticbuffer.h": "c",
+    "enum.h": "c",
+    "dynbuffer.h": "c",
+    "input.h": "c"
   }
 }

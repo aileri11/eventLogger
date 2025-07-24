@@ -11,9 +11,12 @@ typedef struct {
     Event arr[ARRAY_SIZE];
 } staticBuffer;
 
-// staticBuffer.c
+// createEvent.c
+void create_event(staticBuffer* buffer, int code);
+
 void put_event(staticBuffer* buffer, Event new_event);
 
+// staticBuffer.c
 void find_event(staticBuffer* buffer);
 
 void peek_event(staticBuffer* buffer);

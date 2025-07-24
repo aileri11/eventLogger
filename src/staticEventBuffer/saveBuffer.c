@@ -1,7 +1,8 @@
-#include "eventLog.h"
-#include "./staticEventBuffer/staticBuffer.h"
+#include "../input.h"
+#include "../eventLog.h"
+#include "staticBuffer.h"
 
-//static
+// static
 void save_binary(staticBuffer* buffer){
     // open file
     FILE *file = fopen(SAVE_FILE_PATH, "ab");

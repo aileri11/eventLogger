@@ -3,7 +3,10 @@ if [ -d "./build" ]; then
 	rm -rf ./build
 fi
 mkdir build
-mkdir data
+
+if [ ! -d "./data" ]; then 
+	mkdir data
+fi
 
 cmake -S . -B build
 cmake --build build
