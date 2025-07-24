@@ -70,9 +70,9 @@ int dyn_pop_event(dynamicBuffer* buffer){
 
     // free memory
     free(buffer->bufferPtr[buffer->head]);
-    buffer->bufferPtr[buffer->head++] = NULL;
+    buffer->bufferPtr[buffer->head] = NULL;
 
-    if(buffer->head == buffer->array_size){
+    if(buffer->head++ == buffer->array_size){
             buffer->head = 0;
     }
 
