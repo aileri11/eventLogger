@@ -1,5 +1,5 @@
 #include "input.h"
-#include "../eventLog.h"
+#include "eventLog.h"
 #include "dynBuffer.h"
 
 void dyn_create_event(dynamicBuffer* buffer, int code){

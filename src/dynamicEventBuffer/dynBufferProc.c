@@ -1,11 +1,9 @@
-#include "../input.h"
-#include "../enum.h"
-#include "../eventLog.h"
+#include "input.h"
+#include "enum.h"
+#include "eventLog.h"
 #include "createEventDyn.c"
 #include "dynBuffer.c"
 #include "dynSaveBuffer.c"
-
-#include "../input.h"
 
 
 void dynamicBufferProc(){

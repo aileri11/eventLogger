@@ -1,8 +1,8 @@
 #include "input.h"
 #include "enum.h"
 #include "eventLog.h"
-#include "./staticEventBuffer/staticBufferProc.c"
-#include "./dynamicEventBuffer/dynBufferProc.c"
+#include "staticEventBuffer/staticBufferProc.c"
+#include "dynamicEventBuffer/dynBufferProc.c"
 
 
 int main(void){

@@ -1,7 +1,7 @@
 #ifndef STATIC_BUFFER_H
 #define STATIC_BUFFER_H
 
-#include "../eventLog.h"
+#include "eventLog.h"
 
 #define ARRAY_SIZE 10
 

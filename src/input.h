@@ -10,6 +10,7 @@
 // enuminator
 #include "enum.h"
 
+
 int read_mode_value(){
     //const buffer
     char input[100];
