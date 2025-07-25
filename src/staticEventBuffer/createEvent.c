@@ -1,3 +1,4 @@
+#include "input.h"
 #include "eventLog.h"
 #include "staticBuffer.h"
 

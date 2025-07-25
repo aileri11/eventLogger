@@ -11,12 +11,14 @@ int dichotomy(int target, staticBuffer* buffer){
 
     while (left <= right){
         int idx = (left + right) / 2;
+
         if (buffer->arr[idx % ARRAY_SIZE].code == target){
             return idx % ARRAY_SIZE;
         }
         else if (buffer->arr[idx % ARRAY_SIZE].code > target){
             right = idx - 1; 
-        } else left = idx + 1;
+        }
+        else left = idx + 1;
     }
     return -1;
 }
