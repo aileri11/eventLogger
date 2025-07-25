@@ -17,15 +17,15 @@ void dyn_create_event(dynamicBuffer* buffer, int code);
 
 void dyn_put_event(dynamicBuffer* buffer, Event* new_event);
 
-void dyn_find_event(dynamicBuffer* buffer);
+int dyn_find_event(dynamicBuffer* buffer);
 
-void dyn_peek_event(dynamicBuffer* buffer);
+int dyn_peek_event(dynamicBuffer* buffer);
 
 int dyn_pop_event(dynamicBuffer* buffer);
 
-void dyn_save_binary(dynamicBuffer* buffer);
+int dyn_save_binary(dynamicBuffer* buffer);
 
-void dyn_clear_buffer(dynamicBuffer* buffer);
+int dyn_clear_buffer(dynamicBuffer* buffer);
 
 // debug func
 void stdout_event_codes_dyn(dynamicBuffer* buffer){

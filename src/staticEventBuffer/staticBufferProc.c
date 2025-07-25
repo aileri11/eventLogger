@@ -17,11 +17,13 @@ void staticBufferProc(){
     // for testing, code == event creating order
     int code = 0;
 
-    // stdout option info
-    info();
+    
 
     // read values, break on exit value
     do {
+        // stdout option info
+        info();
+
         option = read_value();
 
         switch(option){
@@ -33,6 +35,7 @@ void staticBufferProc(){
 
             case SAVE_OPTION:
                 save_binary(&buffer);
+                printf("saved\n");
                 break;
             
             case PEEK_OPTION:

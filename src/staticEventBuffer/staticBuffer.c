@@ -24,10 +24,10 @@ int dichotomy(int target, staticBuffer* buffer){
 }
 
 
-void find_event(staticBuffer* buffer){
+int find_event(staticBuffer* buffer){
     if (buffer->size == 0){
         printf("Empty\n");
-        return;
+        return -1;
     }
 
     char code[80];
@@ -37,7 +37,7 @@ void find_event(staticBuffer* buffer){
 
     if (digits_only(code) != 0){
         printf("Invalid input\n");
-        return;
+        return -1;
     }
     
     int target_idx = dichotomy(atoi(code), buffer);
@@ -45,21 +45,23 @@ void find_event(staticBuffer* buffer){
 
     if (target_idx < 0){
         printf("Element not found\n");
-        return;
+        return -1;
     }
 
+    return 0;
 }
 
 
-void peek_event(staticBuffer* buffer){
+int peek_event(staticBuffer* buffer){
     // check size
     if (buffer->size == 0){
         printf("empty\n");
-        return;
+        return -1;
     }
 
     printf("code: %d\n", buffer->arr[buffer->head].code);
     
+    return 0;
 }
 
 

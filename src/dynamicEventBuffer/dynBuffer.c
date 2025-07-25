@@ -24,10 +24,10 @@ int dyn_dichotomy(int target, dynamicBuffer* buffer){
 }
 
 
-void dyn_find_event(dynamicBuffer* buffer){
+int dyn_find_event(dynamicBuffer* buffer){
     if (buffer->size == 0){
         printf("Empty\n");
-        return;
+        return -1;
     }
 
     char code[80];
@@ -37,7 +37,7 @@ void dyn_find_event(dynamicBuffer* buffer){
 
     if (digits_only(code) != 0){
         printf("Invalid input\n");
-        return;
+        return -1;
     }
     
     int target_idx = dyn_dichotomy(atoi(code), buffer);
@@ -45,20 +45,22 @@ void dyn_find_event(dynamicBuffer* buffer){
 
     if (target_idx < 0){
         printf("Element not found\n");
-        return;
+        return -1;
     }
+
+    return 0;
 };
 
 
-void dyn_peek_event(dynamicBuffer* buffer){
+int dyn_peek_event(dynamicBuffer* buffer){
     // check size
     if (buffer->size == 0){
         printf("empty\n");
-        return;
+        return -1;
     }
 
     printf("code: %d\n", buffer->bufferPtr[buffer->head]->code);
-
+    return 0;
 };
 
 

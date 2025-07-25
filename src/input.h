@@ -103,9 +103,9 @@ void info(){
     printf("2 : save event sequence to file\n");
     printf("3 : peek element\n");
     printf("4 : pop element\n");
-    printf("5 : exit\n");
-    printf("6 : delete binary\n");
-    printf("7 : find element\n\n");
+    printf("5 : delete binary\n");
+    printf("6 : find element\n");
+    printf("7 : exit\n\n");
 }
 
 #endif // INPUT_H

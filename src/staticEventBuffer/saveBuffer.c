@@ -3,12 +3,12 @@
 #include "staticBuffer.h"
 
 // static
-void save_binary(staticBuffer* buffer){
+int save_binary(staticBuffer* buffer){
     // open file
     FILE *file = fopen(SAVE_FILE_PATH, "ab");
     if (file == NULL){
         perror("Error\n");
-        return;
+        return -1;
     }
 
     int idx;
@@ -39,6 +39,7 @@ void save_binary(staticBuffer* buffer){
     clear_buffer(buffer);
     fclose(file);
     
+    return 0;
 }
 
 

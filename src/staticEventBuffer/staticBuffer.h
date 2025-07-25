@@ -17,13 +17,13 @@ void create_event(staticBuffer* buffer, int code);
 void put_event(staticBuffer* buffer, Event new_event);
 
 // staticBuffer.c
-void find_event(staticBuffer* buffer);
+int find_event(staticBuffer* buffer);
 
-void peek_event(staticBuffer* buffer);
+int peek_event(staticBuffer* buffer);
 
 int pop_event(staticBuffer* buffer);
 
-void save_binary(staticBuffer* buffer);
+int save_binary(staticBuffer* buffer);
 
 void clear_buffer(staticBuffer* buffer);
 

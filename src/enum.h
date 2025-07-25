@@ -10,9 +10,9 @@
 #define SAVE_OPTION 2
 #define PEEK_OPTION 3
 #define POP_OPTION 4
-#define EXIT_OPTION 5
-#define CLEAR_FILE_OPTION 6
-#define FIND_OPTION 7
+#define CLEAR_FILE_OPTION 5
+#define FIND_OPTION 6
+#define EXIT_OPTION 7
 
 #define TEST_INPUT_OPTION -1
 

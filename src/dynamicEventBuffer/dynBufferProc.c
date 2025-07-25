@@ -1,3 +1,4 @@
+#include "input.h"
 #include "enum.h"
 #include "createEventDyn.c"
 #include "dynBuffer.c"
@@ -22,11 +23,11 @@ void dynamicBufferProc(){
     // for testing, code == event creating order
     int code = 0;
 
-    // stdout option info
-    info();
-
     // read values, break on exit value
     do {
+         // stdout option info
+        info();
+
         option = read_value();
 
         switch(option){

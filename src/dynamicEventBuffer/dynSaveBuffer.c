@@ -3,18 +3,18 @@
 #include "dynBuffer.h"
 
 // dynamic
-void dyn_save_binary(dynamicBuffer* buffer){
+int dyn_save_binary(dynamicBuffer* buffer){
     // empty check
     if (buffer->array_size == 0){
         printf("Empty\n");
-        return;
+        return -1;
     }
 
     // open file
     FILE *file = fopen(SAVE_FILE_PATH, "ab");
     if (file == NULL){
         perror("Error\n");
-        return;
+        return -1;
     }
 
     int idx;
@@ -44,14 +44,16 @@ void dyn_save_binary(dynamicBuffer* buffer){
     // clear buffer 
     dyn_clear_buffer(buffer);
     fclose(file);
+
+    return 0;
 }
 
-void dyn_clear_buffer(dynamicBuffer* buffer){
+int dyn_clear_buffer(dynamicBuffer* buffer){
     // empty check
     if (buffer->size == 0){
         printf("Empty\n");
 
-        return;
+        return -1;
     }
 
     // free event memory
@@ -65,4 +67,6 @@ void dyn_clear_buffer(dynamicBuffer* buffer){
     
     buffer->head = 0;
     buffer->size = 0;
+
+    return 0;
 };
