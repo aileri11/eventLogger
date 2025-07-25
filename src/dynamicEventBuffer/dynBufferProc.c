@@ -76,6 +76,7 @@ void dynamicBufferProc(){
 
             case FIND_OPTION:
                 dyn_find_event(&buffer);
+                stdout_event_codes_dyn(&buffer);
                 break;
 
             default:

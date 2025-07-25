@@ -30,6 +30,7 @@ void staticBufferProc(){
         
             case ADD_OPTION:
                 create_event(&buffer, code++);
+                stdout_event_codes(&buffer);
                 break;
 
             case SAVE_OPTION:
@@ -61,6 +62,7 @@ void staticBufferProc(){
 
             case FIND_OPTION:
                 find_event(&buffer);
+                stdout_event_codes(&buffer);
                 break;
 
             default:

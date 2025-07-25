@@ -68,8 +68,14 @@ int pop_event(staticBuffer* buffer){
         return -1;
     }
 
-    buffer->size--;
     buffer->arr[buffer->head++];
+
+    if (buffer->head == ARRAY_SIZE){
+        buffer->head = 0;
+    }
+
+    // resize
+    buffer->size--;
 
     return 0;
 }
