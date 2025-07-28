@@ -5,6 +5,9 @@
     "staticbuffer.h": "c",
     "enum.h": "c",
     "dynbuffer.h": "c",
-    "input.h": "c"
+    "input.h": "c",
+    "dyn_create_event.h": "c",
+    "dyn_buffer.h": "c",
+    "stdint.h": "c"
   }
 }

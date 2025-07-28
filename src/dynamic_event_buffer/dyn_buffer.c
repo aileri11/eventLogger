@@ -1,11 +1,12 @@
-#include "input.h"
-#include "enum.h"
-#include "createEventDyn.c"
-#include "dynBuffer.c"
-#include "dynSaveBuffer.c"
+#include "dyn_buffer.h"
+#include "dyn_create_event.c"
+#include "dyn_save_buffer.c"
+#include "dyn_find_event.c"
+#include "dyn_peek_event.c"
+#include "dyn_pop_event.c"
 
 
-void dynamicBufferProc(){
+void dyn_buffer(){
     // dynamic event buffer
     int array_size = 0;
     do {
@@ -60,7 +61,6 @@ void dynamicBufferProc(){
                 };
 
                 free(buffer.bufferPtr);
-                buffer.bufferPtr = NULL;
 
                 break;
 

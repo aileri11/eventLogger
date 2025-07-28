@@ -1,9 +1,7 @@
-#include "input.h"
-#include "eventLog.h"
-#include "dynBuffer.h"
+#include "dyn_find_event.h"
 
 
-int dyn_dichotomy(int target, dynamicBuffer* buffer){
+int dyn_binary_search(int target, dynamicBuffer* buffer){
     int left = buffer->head;
     int right = buffer->head + buffer->size - 1;
 
@@ -40,7 +38,7 @@ int dyn_find_event(dynamicBuffer* buffer){
         return -1;
     }
     
-    int target_idx = dyn_dichotomy(atoi(code), buffer);
+    int target_idx = dyn_binary_search(atoi(code), buffer);
     printf("target idx: %d\n", target_idx);
 
     if (target_idx < 0){
@@ -51,36 +49,3 @@ int dyn_find_event(dynamicBuffer* buffer){
     return 0;
 };
 
-
-int dyn_peek_event(dynamicBuffer* buffer){
-    // check size
-    if (buffer->size == 0){
-        printf("empty\n");
-        return -1;
-    }
-
-    printf("code: %d\n", buffer->bufferPtr[buffer->head]->code);
-    return 0;
-};
-
-
-int dyn_pop_event(dynamicBuffer* buffer){
-    // check size
-    if (buffer->size == 0){
-        printf("empty\n");  
-        return -1;
-    }
-
-    // free memory
-    free(buffer->bufferPtr[buffer->head]);
-    buffer->bufferPtr[buffer->head++] = NULL;
-
-    if(buffer->head == buffer->array_size){
-            buffer->head = 0;
-    }
-
-    // resize
-    buffer->size--;
-
-    return 0;
-};

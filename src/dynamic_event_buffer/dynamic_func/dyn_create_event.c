@@ -1,6 +1,4 @@
-#include "input.h"
-#include "eventLog.h"
-#include "dynBuffer.h"
+#include "dyn_create_event.h"
 
 void dyn_create_event(dynamicBuffer* buffer, int code){
     // init new Event struct, alloc memory for new event
@@ -37,11 +35,12 @@ void dyn_create_event(dynamicBuffer* buffer, int code){
 
 void dyn_put_event(dynamicBuffer* buffer, Event* new_event){
     if (buffer->size < buffer->array_size){
-        buffer->bufferPtr[(buffer->head + buffer->size++)% buffer->array_size] = new_event;
+        uint8_t idx = (buffer->head + buffer->size)% buffer->array_size;
+        buffer->bufferPtr[idx] = new_event;
+        buffer->size++;
     }
     else{
         free(buffer->bufferPtr[buffer->head]);
-        buffer->bufferPtr[buffer->head] = NULL;
         buffer->bufferPtr[buffer->head++] = new_event;
         if(buffer->head == buffer->array_size){
             buffer->head = 0;

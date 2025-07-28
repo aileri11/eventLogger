@@ -1,6 +1,4 @@
-#include "input.h"
-#include "eventLog.h"
-#include "dynBuffer.h"
+#include "dyn_save_buffer.h"
 
 // dynamic
 int dyn_save_binary(dynamicBuffer* buffer){
@@ -61,7 +59,6 @@ int dyn_clear_buffer(dynamicBuffer* buffer){
         // check NULL-ptr
         if (buffer->bufferPtr[i] != NULL){
             free(buffer->bufferPtr[i]);
-            buffer->bufferPtr[i] = NULL;
         }
     }
     

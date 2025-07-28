@@ -1,8 +1,9 @@
 #include "input.h"
 #include "enum.h"
 #include "eventLog.h"
-#include "staticEventBuffer/staticBufferProc.c"
-#include "dynamicEventBuffer/dynBufferProc.c"
+#include "staticBufferProc.c"
+#include "dyn_buffer.h"
+#include "dyn_buffer.c"
 
 
 int main(void){
@@ -20,7 +21,7 @@ int main(void){
             break;
 
         case DYNAMIC_MODE:
-            dynamicBufferProc();
+            dyn_buffer();
             break;
         
         default:
